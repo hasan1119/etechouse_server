@@ -228,4 +228,4 @@ async function run() {
 run().catch(console.dir);
 
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT, console.log("server is running"))
