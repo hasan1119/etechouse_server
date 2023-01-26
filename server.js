@@ -4,7 +4,7 @@ const { MongoClient } = require("mongodb");
 const cors = require("cors");
 const uuid = require("uuid/v4");
 require("dotenv").config();
-const stripe = require("stripe")(process.env.STRIPE_KEY);
+// const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 
 const ObjectId = require("mongodb").ObjectId;
