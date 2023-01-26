@@ -2,11 +2,10 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
-require("dotenv").config();
-const stripe = require("stripe")(
-  "sk_test_51KD7J8JE5np8TvxNiHIUayuWdJYZRfu8VUr4H4HiN2fdAA94zWD4FdxkErKs535D84fpcY3kO0zWrJ4a2LGvSfs800bolyozu4"
-);
 const uuid = require("uuid/v4");
+require("dotenv").config();
+const stripe = require("stripe")(process.env.STRIPE_KEY);
+
 
 const ObjectId = require("mongodb").ObjectId;
 const port = process.env.PORT || 5000;
@@ -66,7 +65,7 @@ app.post("/checkout", async (req, res) => {
 });
 
 // CONNECTION URI
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.dv4ff.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const uri = process.env.DB_URI;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -226,4 +225,4 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.listen(port, () => console.log(`server is running on port ${port}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
