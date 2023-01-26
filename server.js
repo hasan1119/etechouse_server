@@ -8,7 +8,7 @@ const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 
 const ObjectId = require("mongodb").ObjectId;
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 const app = express();
 
 //MIDDLEWARE
@@ -225,4 +225,4 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.listen($PORT, () => console.log(`Server is running on port ${$PORT}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
