@@ -8,7 +8,7 @@ const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 
 const ObjectId = require("mongodb").ObjectId;
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 const app = express();
 
 //MIDDLEWARE
